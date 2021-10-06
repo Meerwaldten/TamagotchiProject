@@ -40,8 +40,9 @@ public class Game {
     public static void theGame(Tamagotchi tamagotchi) {
         int roundsOfGame = 10; //Variabel der kan ændres efter hvor mange runder man vil spille. Kan også laves til en scanner så vi helt selv kan bestemme.
         System.out.println("Time to have fun with your Tamagotchi!");
+        System.out.println("Your tamagotchi has energy and mood! \nYou can feed it and have it sleep to increase energy. You can pet or play with it to increase mood, but this will decrease it's energy.\nIf your tamagotchi's energy goes below 0, it dies.");
         for (int i = 0; i < roundsOfGame; i++) { //Fori loop der kører igennem x antal runder af spillet og sætter mulighederne op.
-            System.out.println("Type 1 to Feed, 2 to Pet, 3 to Sleep, 4 for special option or 5 for Quit!");
+            System.out.println("Type 1 to Feed, 2 to Pet, 3 to Sleep, 4 for play or 5 for Quit!");
             int option = scanner.nextInt();
             if (option == 1){
                 tamagotchi.feed();
