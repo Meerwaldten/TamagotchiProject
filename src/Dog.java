@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class Dog extends Tamagotchi{
+    public Scanner scanner = new Scanner(System.in);
 
     public Dog(String name){
         super(name);
@@ -18,28 +21,28 @@ public class Dog extends Tamagotchi{
         System.out.println(" You've walked "+name+"'s "+howLongWalk+" distance!\n "+name+" mood is now: "+mood+" and energy is now: "+energy);
     }
 
-    public String walkDog (int howLongWalk){
-        mood = mood + howLongWalk;
-        energy = energy - howLongWalk;
-        return " You've walked "+name+"'s "+howLongWalk+" distance!\n "+name+" mood is now: "+mood+" and energy is now: "+energy;
-    }
 
     @Override
     public boolean isHappy(){
         if(mood > 6 && energy > 6){
+            System.out.println(name+" is happy!");
             return true;
-        }else {
+        }
+        else if (mood > 6 && energy < 6){
+            System.out.println(name+" is happy but tired!");
+            return true;
+        }
+        else if (mood < 6 && energy > 6){
+            System.out.println(name+" is not happy but restless!");
+            return false;
+        }
+        else {
+            System.out.println(name+" is not happy...");
             return false;
         }
     }
 
 
-    public boolean needsWalk(){
-        if (energy > 8){
-            return true;
-        }
-        return false;
-    }
 
 
 

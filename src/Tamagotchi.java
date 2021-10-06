@@ -37,14 +37,7 @@ public class Tamagotchi {
         return energy = energy+food;
     }
 
-    public boolean isSleepy(){
-        if(energy < 3){
-            System.out.println(name+" is tired and wants to sleep.");
-            return true;
-        }
-        System.out.println(name+" is full of energy and ready to play!");
-        return false;
-    }
+
 
     public int sleep (){
         System.out.println("Type in how long your tamagotchi would like to sleep!");
@@ -59,8 +52,18 @@ public class Tamagotchi {
             System.out.println(name+" is happy!");
             return true;
         }
+        else if (mood > 4 && energy < 4){
+            System.out.println(name+" is happy but tired!");
+            return true;
+        }
+        else if (mood < 4 && energy > 4){
+            System.out.println(name+" is not happy but restless!");
+            return false;
+        }
+        else{
         System.out.println(name+" is not happy...");
         return false;
+        }
     }
 
     public void specialOption(){
@@ -68,11 +71,10 @@ public class Tamagotchi {
     }
 
     public boolean isDead(){
-        if (energy <= 0){
+        if (energy < 0){
             System.out.println(name+" is dead.");
             return true;
         }else {
-            System.out.println(name+" is alive.");
             return false;
         }
     }
